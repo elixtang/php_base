@@ -122,4 +122,6 @@ class Helper {
 		}
 		return $out . "\n";
 	}
+}
+
 ?>
