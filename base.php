@@ -62,4 +62,64 @@ class Base {
 		return $results;
 	}
 }
+
+class Helper {
+
+	/**
+	 * init
+	 *
+	 * check plugin curl exists or not
+	 * @param none
+	 * @return none
+	 */
+	public function __construct() {
+		if (!function_exists('curl_init')) {
+			throw new Exception('Helper requires the php-curl extension to be installed.');
+		}
+	}
+
+	/**
+	 * send HTTP GET request using curl
+	 *
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @return string
+	 */
+	public static function curl_download($Url, $refer = null, $user_agent = null) {
+		if (!$refer) $refer = 'http://www.37du.com/';
+		if (!$user_agent) $user_agent = 'Mozilla/4.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.83';
+		$ch = curl_init(); 
+		curl_setopt($ch, CURLOPT_URL, $Url);
+		curl_setopt($ch, CURLOPT_REFERER, $refer);
+		curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+		$output = curl_exec($ch);
+		curl_close($ch);
+		return $output;
+	}
+
+	/**
+	 * create a GET query for URLs
+	 *
+	 * @param array
+	 * @return string
+	 */
+	public static function encode_array($args) {
+		if (!is_array($args)) return 'null';
+		$c = 0;
+		$out = '';
+		foreach ($args as $name => $value) {
+			if ($c++ != 0) $out .= '&';
+			$out .= urlencode("$name").'=';
+			if (is_array($value)) {
+				$out .= urlencode(serialize($value));
+			} else {
+				$out .= urlencode("$value");
+			}
+		}
+		return $out . "\n";
+	}
 ?>
