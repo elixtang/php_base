@@ -11,8 +11,8 @@ php_base 起初是用于将文本文件导入数据库的一套基础函数库�
 + 汉字转拼音
 
 ##How To
-+ [Clone]: php_base的使用很简单，只要在本地安装git，然后执行#git clone git://github.com/elixtang/php_base.git，即可将php_base拷贝到本地。
-+ [Coding]: 打开app.php，在Model类增加数据处理相关函数；Controller类的run函数是一个主调度函数，将最终需要执行的函数放在run函数内。
++ [Clone]: 在本地安装git，然后执行#git clone git://github.com/elixtang/php_base.git，即可将php_base拷贝到本地。
++ [Coding]: 打开app.php，在Model类增加数据处理相关函数；Controller类的run函数是一个主调度函数，将最终需要执行的函数放在这里即可。
 + [Run]: 执行#php app.php。
 
 ##Todo List
