@@ -61,6 +61,24 @@ class Base {
 		$results = $db->get_results($sql);
 		return $results;
 	}
+
+        /**     
+         * handle truncate table operation
+         *              
+         * @param string
+         * @return boolean
+         */  
+	public static function truncate($table) {
+		$conn = self::mysql_init();
+		$sql = "show tables like '{$table}'";
+		$res = self::mysql_read($conn, $sql);
+		if (!$res) {
+			echo "\033[31;49;5m [Table `" . $table. "` doesn't exists ] \033[39;49;0m\n";
+			return FALSE;
+		}
+		self::mysql_write($conn, "truncate table {$table}");
+		return TRUE;
+	}
 }
 
 class Helper {
