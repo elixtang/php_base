@@ -22,7 +22,11 @@ class Base {
 		require('config/config.php');
 		$arr = array();
 		foreach ($files as $k => $v) {
-			$arr[$k] = file($v);
+			$tmp = file($v);
+			array_walk($tmp, function(&$v){
+				$v = trim($v);
+			});
+			$arr[$k] = $tmp;
 		}
 		return $arr;
 	}
