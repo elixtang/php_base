@@ -147,7 +147,7 @@ class Helper {
 	}
 
 	/**
-	 * get provnice and city map
+	 * get province and city map
 	 *
 	 * @param none
 	 * @return array
