@@ -36,6 +36,7 @@ class Base {
         public static function mysql_init() {
                 require("config/config.php");
                 $db = new ezSQL_mysql($db['dbuser'], $db['dbpasswd'], $db['dbname'], $db['dbhost'] . ':' . $db['dbport']);
+		$db->query("set names utf8");
                 return $db;
         }
 
