@@ -145,6 +145,16 @@ class Helper {
 		}
 		return $out . "\n";
 	}
+
+	/**
+	 * get provice and city map
+	 *
+	 * @param none
+	 * @return array
+	 */
+	public static function prov_city_map() {
+		return require('./lib/pc_map.php');
+	}
 }
 
 ?>
