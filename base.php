@@ -153,7 +153,7 @@ class Helper {
 	 * @return array
 	 */
 	public static function prov_city_map() {
-		return require('./lib/pc_map.php');
+		return require('./lib/prov_city_map.php');
 	}
 }
 
