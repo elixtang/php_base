@@ -32,7 +32,7 @@ class Base {
 	}
 
         /**     
-         * initialize mysql
+         * initialize mysql (default using master)
          *              
          * @param string
          * @return resource (object)
