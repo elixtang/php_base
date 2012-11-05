@@ -38,14 +38,14 @@ class Base {
          * @return resource (object)
          */  
         public static function mysql_init($dbname = 'master') {
-				require("config/config.php");
-				if (!array_key_exists($dbname, $dbconf)) {
-						echo "\033[31;49;5m MYSQL INITIALIZE FAILED! EXIT! \033[39;49;0m\n";
-						exit;
-				}
+                require("config/config.php");
+                if (!array_key_exists($dbname, $dbconf)) {
+                        echo "\033[31;49;5m MYSQL INITIALIZE FAILED! EXIT! \033[39;49;0m\n";
+                        exit;
+                }
 				$dbc = $dbconf[$dbname];
                 $db = new ezSQL_mysql($dbc['dbuser'], $dbc['dbpasswd'], $dbc['dbname'], $dbc['dbhost'] . ':' . $dbc['dbport']);
-				$db->query("set names utf8");
+                $db->query("set names utf8");
                 return $db;
         }
 
