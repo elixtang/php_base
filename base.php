@@ -43,7 +43,7 @@ class Base {
                         echo "\033[31;49;5m MYSQL INITIALIZE FAILED! EXIT! \033[39;49;0m\n";
                         exit;
                 }
-				$dbc = $dbconf[$dbname];
+                $dbc = $dbconf[$dbname];
                 $db = new ezSQL_mysql($dbc['dbuser'], $dbc['dbpasswd'], $dbc['dbname'], $dbc['dbhost'] . ':' . $dbc['dbport']);
                 $db->query("set names utf8");
                 return $db;
